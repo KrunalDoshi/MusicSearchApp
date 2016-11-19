@@ -8,6 +8,7 @@
 
 #import "LyricsViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Define.h"
 
 @interface LyricsViewController ()
 
@@ -18,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotLyrics:) name:@"GotLyrics" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotLyrics:) name:GotLyricsNotification object:nil];
 
     self.lblSongLyrics.layer.cornerRadius = 10;
     self.lblSongLyrics.layer.borderWidth = 3.0;
@@ -27,7 +28,7 @@
     self.title = @"Lyrics";
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor],
-       NSFontAttributeName:[UIFont fontWithName:@"EuphemiaUCAS" size:21]}];
+       NSFontAttributeName:[UIFont fontWithName:appFont size:appFontTitleSize]}];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -48,7 +49,7 @@
 
     //Fetching the track lyrics and handling the error if any
     [self.track fetchLyrics:self.track withErrorHandler:^(NSError *error) {
-        UIAlertController *alerController = [UIAlertController alertControllerWithTitle:@"Connection Error" message:@"Operation could not be completed because of connection problem." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alerController = [UIAlertController alertControllerWithTitle:ConnectionError message:ConnectionErrorMessage preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.navigationController popViewControllerAnimated:YES];

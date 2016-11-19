@@ -10,6 +10,7 @@
 #import "Track.h"
 #import "TrackViewCell.h"
 #import "LyricsViewController.h"
+#import "Define.h"
 
 @interface ViewController ()
 
@@ -26,7 +27,7 @@
     self.title = @"Music Search";
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor],
-       NSFontAttributeName:[UIFont fontWithName:@"EuphemiaUCAS" size:21]}];
+       NSFontAttributeName:[UIFont fontWithName:appFont size:appFontTitleSize]}];
 }
 
 
@@ -47,7 +48,7 @@
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath {
-    TrackViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TrackCell"];
+    TrackViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TrakCellIdentifier];
     Track *track = [self.trackList objectAtIndex:indexPath.row];
     cell.lblSongName.text = track.songName;
     cell.lblAlbumName.text = track.albumName;
@@ -89,7 +90,7 @@
                 [self.tableView reloadData];
             }
             else {
-                UIAlertController *alerController = [UIAlertController alertControllerWithTitle:@"Connection Error" message:@"Operation could not be completed because of connection problem." preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController *alerController = [UIAlertController alertControllerWithTitle:ConnectionError message:ConnectionErrorMessage preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                 }];
                 [alerController addAction:okAction];

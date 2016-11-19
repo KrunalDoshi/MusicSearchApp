@@ -68,6 +68,7 @@
 		E8AB3B911DE0B5C200F013B4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E8AB3B941DE0C33100F013B4 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Reachability/Reachability.h; sourceTree = "<group>"; };
 		E8AB3B951DE0C33100F013B4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Reachability/Reachability.m; sourceTree = "<group>"; };
+		E8AB3B9B1DE0D85100F013B4 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +136,7 @@
 				E8AB3B141DDFC9D600F013B4 /* Supporting Files */,
 				E8AB3B8D1DE0121300F013B4 /* LyricsViewController.h */,
 				E8AB3B8E1DE0121300F013B4 /* LyricsViewController.m */,
+				E8AB3B9B1DE0D85100F013B4 /* Define.h */,
 			);
 			path = MusicSearch;
 			sourceTree = "<group>";

@@ -8,9 +8,7 @@
 
 #import "Track.h"
 #import "NetworkManager.h"
-
-#define trackSearchURL @"https://itunes.apple.com/search?term="
-#define lyricsURL @"http://lyrics.wikia.com/api.php?func=getSong&artist=%@&song=%@&fmt=xml"
+#import "Define.h"
 
 @interface Track()
 @property (nonatomic,strong) NSMutableDictionary *lyricsDictionary;
@@ -85,7 +83,7 @@
 -(void)parserDidEndDocument:(NSXMLParser *)parser{
     // parsing completed
     NSLog(@"%@",self.lyricsDictionary);
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"GotLyrics" object:self.lyricsDictionary];
+    [[NSNotificationCenter defaultCenter] postNotificationName:GotLyricsNotification object:self.lyricsDictionary];
 }
 
 
